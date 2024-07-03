@@ -16,14 +16,13 @@ func (app *App) commandMap(args ...string) error {
 	if app.URL == "" {
 		app.URL = "https://pokeapi.co/api/v2/location-area/"
 	}
-
-	pokeRes, err := pokeapi.GetPokeData(app.URL)
+	pokeRes, err := pokeapi.GetPokeData(app.URL, pokeapi.PokeJson{})
 	if err != nil {
 		return fmt.Errorf("failed to fetch PokeData: %w", err)
 	}
 	app.PokeRes = &pokeRes
 
-	pokeapi.PrintAreas(pokeRes)
+	pokeapi.PrintAreas(&pokeRes)
 	app.URL = pokeRes.Next
 	return nil
 }
@@ -34,13 +33,13 @@ func (app *App) commandMapB(args ...string) error {
 	}
 	app.URL = app.PokeRes.Previous
 
-	pokeRes, err := pokeapi.GetPokeData(app.URL)
+	pokeRes, err := pokeapi.GetPokeData(app.URL, pokeapi.PokeJson{})
 	if err != nil {
 		return fmt.Errorf("failed to fetch PokeData: %w", err)
 	}
 	app.PokeRes = &pokeRes
 
-	pokeapi.PrintAreas(pokeRes)
+	pokeapi.PrintAreas(&pokeRes)
 	return nil
 }
 
