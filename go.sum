@@ -1,0 +1,4 @@
+github.com/noxventura/pokedex-cli-go/internal/pokeapi v0.0.0-20240703101649-c84a1f2c50fd h1:m4/rAvE3XUweQZKAmhaj16JHWV4xxK3MAfQil+7bUI0=
+github.com/noxventura/pokedex-cli-go/internal/pokeapi v0.0.0-20240703101649-c84a1f2c50fd/go.mod h1:EYf6wWLMBpBcM6MEUDGZiviTZSH0BVsjcn2drl+XlTc=
+github.com/noxventura/pokedex-cli-go/internal/pokecache v0.0.0-20240703101649-c84a1f2c50fd h1:CeXQkDCXvb0O9tkIravv93hYOwklwe9oPvvziAZEGm8=
+github.com/noxventura/pokedex-cli-go/internal/pokecache v0.0.0-20240703101649-c84a1f2c50fd/go.mod h1:tcZoOfLLrsoZw3wVOQ/6gvgTQZXF/L01N/msUSZABN4=

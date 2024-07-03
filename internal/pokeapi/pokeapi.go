@@ -48,6 +48,7 @@ func GetPokeData(url string) (PokeJson, error) {
 	if err := json.Unmarshal(body, &currentJson); err != nil {
 		return PokeJson{}, fmt.Errorf("failed to unmarshal JSON: %w", err)
 	}
+	// add to cache
 	pokeCache.Add(url, body)
 	return currentJson, nil
 }

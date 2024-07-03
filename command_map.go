@@ -3,7 +3,8 @@ package main
 import (
 	"errors"
 	"fmt"
-	"internal/pokeapi"
+
+	"github.com/noxventura/pokedex-cli-go/internal/pokeapi"
 )
 
 type App struct {

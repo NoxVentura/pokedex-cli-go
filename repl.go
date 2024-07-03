@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"internal/pokeapi"
 	"os"
 	"strings"
 )
@@ -39,8 +38,6 @@ func StartRepl() {
 }
 
 var isStopped bool = false
-var url string = ""
-var pokeRes pokeapi.PokeJson = pokeapi.PokeJson{}
 
 func cleanInput(text string) []string {
 	loweredText := strings.ToLower(text)
