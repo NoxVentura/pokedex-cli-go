@@ -12,7 +12,7 @@ type App struct {
 	PokeRes *pokeapi.PokeJson
 }
 
-func (app *App) commandMap() error {
+func (app *App) commandMap(args ...string) error {
 	if app.URL == "" {
 		app.URL = "https://pokeapi.co/api/v2/location-area/"
 	}
@@ -28,7 +28,7 @@ func (app *App) commandMap() error {
 	return nil
 }
 
-func (app *App) commandMapB() error {
+func (app *App) commandMapB(args ...string) error {
 	if app.PokeRes == nil || app.PokeRes.Previous == "" || app.URL == "" {
 		return errors.New("no previous area to go back to")
 	}
@@ -49,10 +49,10 @@ var appInstance = &App{
 	PokeRes: nil,
 }
 
-func commandMap() error {
+func commandMap(args ...string) error {
 	return appInstance.commandMap()
 }
 
-func commandMapB() error {
+func commandMapB(args ...string) error {
 	return appInstance.commandMapB()
 }

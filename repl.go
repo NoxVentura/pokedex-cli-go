@@ -24,13 +24,19 @@ func StartRepl() {
 			continue
 		}
 		commandName := words[0]
+
 		command, ok := getCommands()[commandName]
 		if !ok {
 			fmt.Printf("command not found: %s\n\n", words[0])
 			continue
 		}
 
-		err := command.callback()
+		args := []string{}
+		if len(words) > 1 {
+			args = words[1:]
+		}
+
+		err := command.callback(args...)
 		if err != nil {
 			fmt.Println(err)
 		}
@@ -48,7 +54,7 @@ func cleanInput(text string) []string {
 type cliCommand struct {
 	name        string
 	description string
-	callback    func() error
+	callback    func(...string) error
 }
 
 func getCommands() map[string]cliCommand {
@@ -73,6 +79,11 @@ func getCommands() map[string]cliCommand {
 			name:        "mapb",
 			description: "displays the previous 20 location areas in the Pokemon world",
 			callback:    commandMapB,
+		},
+		"explore": {
+			name:        "explore",
+			description: "explores the selected area",
+			callback:    commandExplore,
 		},
 	}
 }

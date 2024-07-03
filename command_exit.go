@@ -1,6 +1,6 @@
 package main
 
-func commandExit() error {
+func commandExit(args ...string) error {
 	isStopped = true
 	return nil
 }
