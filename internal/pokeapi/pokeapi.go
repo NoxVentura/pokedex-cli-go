@@ -3,10 +3,11 @@ package pokeapi
 import (
 	"encoding/json"
 	"fmt"
-	"internal/pokecache"
 	"io"
 	"net/http"
 	"time"
+
+	"github.com/noxventura/pokedex-cli-go/internal/pokecache"
 )
 
 type PokeJson struct {
@@ -47,6 +48,6 @@ func GetPokeData(url string) (PokeJson, error) {
 	if err := json.Unmarshal(body, &currentJson); err != nil {
 		return PokeJson{}, fmt.Errorf("failed to unmarshal JSON: %w", err)
 	}
-	pokeCache.Add(body)
+	pokeCache.Add(url, body)
 	return currentJson, nil
 }
