@@ -11,7 +11,7 @@ import (
 )
 
 type pokeStructs interface {
-	PokeJson | Encounter
+	PokeJson | Encounter | Pokemon
 }
 
 func GetPokeData[T pokeStructs](url string, jsonStruct T) (T, error) {

@@ -10,6 +10,7 @@ import (
 type App struct {
 	URL     string
 	PokeRes *pokeapi.PokeJson
+	PokeDex map[string]pokeapi.Pokemon
 }
 
 func (app *App) commandMap(args ...string) error {
@@ -46,6 +47,7 @@ func (app *App) commandMapB(args ...string) error {
 var appInstance = &App{
 	URL:     "https://pokeapi.co/api/v2/location-area/",
 	PokeRes: nil,
+	PokeDex: make(map[string]pokeapi.Pokemon),
 }
 
 func commandMap(args ...string) error {
