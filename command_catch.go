@@ -26,6 +26,7 @@ func commandCatch(args ...string) error {
 		pokeDex := &appInstance.PokeDex
 		(*pokeDex)[args[0]] = pokemon
 		fmt.Printf("%s was caught!\n", pokemon.Name)
+		fmt.Printf("you may now inspect this pokemon using inspect\n")
 
 	} else {
 		fmt.Printf("%s escaped!\n", pokemon.Name)
